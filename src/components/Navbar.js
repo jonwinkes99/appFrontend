@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme=>({
     menuSliderContainer: {
         width: 250,
         background: "#494B64",
-        height:"480px"
+        height:"100%"
     },
     avatar: {
         display: "block",
@@ -66,7 +66,7 @@ const Navbar = () => {
     }
     const classes = useStyles()
     const sideList = slider => (
-        <Box className={classes.menuSliderContainer} component="div">
+        <Box className={classes.menuSliderContainer} component="div" onClick={toggleSlider(slider, false)}>
         <Avatar className={classes.avatar} src={avatar} alt="Jonathan Winkles"/>
         <Divider/>
         <List>
@@ -86,12 +86,15 @@ const Navbar = () => {
         <Box component="nav">
           <AppBar position="static" style={{background: "#111"}}>
               <Toolbar>
-                <IconButton>
+                <IconButton onClick={toggleSlider("right", true)}>
                   <ArrowBack style={{color: "#4E538F"}}/>
                 </IconButton>
                 <Typography variant="h5">
-                    Jon Winkles
+                    Menu
                 </Typography>
+                <MobilRightMenuSlider onClose={"right", false} anchor="right" open={state.right}>
+                    {sideList("right")}
+                </MobilRightMenuSlider>
               </Toolbar>
             </AppBar>  
         </Box>
