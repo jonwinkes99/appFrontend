@@ -2,10 +2,16 @@ import React from 'react'
 import {makeStyles} from "@material-ui/core/styles"
 import {Typography, Box} from "@material-ui/core";
 import Navbar from "./Navbar"
+import Particles from 'react-particles-js';
 
 const useStyles = makeStyles(theme=>({
     mainContainer: {
-        background: "#4E538F"
+        background: "#4E538F",
+        height: "920px"
+    },
+    particlesCanca: {
+        position: "absolute",
+        justifyContent: "center"
     },
     timeLine: {
         position: "relative",
@@ -43,14 +49,15 @@ const useStyles = makeStyles(theme=>({
            position: "absolute"
        },
        "&:before": {
-        content: "''",
-        position: "absolute",
-        right: "-10px",
-        top: "calc(50% - 5px)",
-        borderStyle: "solid",
-        borderColor: "red red transparent transparent",
-        borderWidth: "10px",
-        transform: "rotate(45deg)"
+           // create red arrow
+        // content: "''",
+        // position: "absolute",
+        // right: "1010px",
+        // top: "calc(50% - 5px)",
+        // borderStyle: "solid",
+        // borderColor: "red red transparent transparent",
+        // borderWidth: "10px",
+        // transform: "rotate(45deg)"
     },
         [theme.breakpoints.up("md")]: {
             width: "44%",
@@ -109,8 +116,29 @@ const Resume = () => {
         <>
         <Navbar/>
         <Box component="header" className={classes.mainContainer}>
+        <Particles 
+            canvasClassName={classes.particlesCanca}
+                params={{
+                    particles: {
+                        number:{
+                            value: 45,
+                            density: {
+                                enable: true,
+                                value_area: 900
+                            }
+                        },
+                        shape: {
+                            type: "square",
+                            stroke: {
+                                width: 1,
+                                color: "tan"
+                            }
+                        } 
+                    }
+                }}
+            />
             <Typography variant="h4" align="center" className={classes.heading}>
-                Resume
+                Experience
             </Typography>
             <Box component="div" className={classes.timeLine}>
                 <Typography 
@@ -124,7 +152,7 @@ const Resume = () => {
                     variant="h5" 
                     align="center" 
                     className={classes.subHeading}>
-                        apprentice electrician
+                        Apprentice Electrician
                     </Typography>
                     <Typography variant="body1" align="center">
                         Genesis Electric 
@@ -144,10 +172,10 @@ const Resume = () => {
                     variant="h5" 
                     align="center" 
                     className={classes.subHeading}>
-                        bus boy
+                        Bus boy
                     </Typography>
                     <Typography variant="body1" align="center">
-                        pappadeaux seafood kitchen
+                        Pappadeaux Seafood Kitchen
                     </Typography>
                     <Typography variant="subtitle1" align="center" style={{color: "tomato"}}>
                         I cleaned dishes, tables, and chairs
@@ -167,7 +195,7 @@ const Resume = () => {
                         Web design and development
                     </Typography>
                     <Typography variant="body1" align="center">
-                        student of technology 
+                        Student of Technology 
                     </Typography>
                     <Typography variant="subtitle1" align="center" style={{color: "tomato"}}>
                         Hey, check out my portfolio!

@@ -4,8 +4,7 @@ import {
     Typography,
     Avatar,
     Grid,
-    Box,
-    TextareaAutosize
+    Box
 } from "@material-ui/core"
 import Typed from 'react-typed';
 import avatar from '../jonpic.jpg'
@@ -14,8 +13,8 @@ import avatar from '../jonpic.jpg'
 const useStyles = makeStyles(theme=> ({
     avatar: {
         background: "#494B64",
-        width: theme.spacing(20),
-        height: theme.spacing(20),
+        width: theme.spacing(30),
+        height: theme.spacing(30),
         margin: theme.spacing(1)
     },
     title: {

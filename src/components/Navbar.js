@@ -13,14 +13,12 @@ import {
     List,
     Typography,
     Box,
-    ListItemIcon,
-    Drawer
+    ListItemIcon
 } from "@material-ui/core"
 import {
     ArrowBack,
     AssignmentInd,
     Home,
-    Apps,
     ContactMail
 } from "@material-ui/icons"
 import avatar from '../jonpic.jpg'
