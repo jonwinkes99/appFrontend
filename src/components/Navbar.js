@@ -21,7 +21,9 @@ import {
     Home,
     ContactMail
 } from "@material-ui/icons"
+import LocalDrinkIcon from '@material-ui/icons/LocalDrink';
 import avatar from '../jonpic.jpg'
+//import Punk from './Punk'
 
 // CSS styles
 const useStyles = makeStyles(theme=>({
@@ -56,6 +58,11 @@ const menuItems = [
         listIcon: <ContactMail/>,
         listText: "Contacts",
         listPath: "/contacts"
+    },
+    {
+        listIcon: <LocalDrinkIcon/>,
+        listText: "Beer API",
+        listPath: "/Punk"  
     }
 ]
 

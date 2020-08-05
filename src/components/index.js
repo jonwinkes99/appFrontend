@@ -3,6 +3,7 @@ import Particles from 'react-particles-js';
 import Navbar from "./Navbar"
 import Header from "./Header"
 import {makeStyles} from "@material-ui/styles"
+//import Punk from "./Punk"
 
 const useStyles = makeStyles({
     particlesCanca: {
@@ -14,7 +15,6 @@ const Home = () => {
     const classes = useStyles()
     return (
         <div>
-            
             <Navbar/>
             <Header/>
             <Particles 
