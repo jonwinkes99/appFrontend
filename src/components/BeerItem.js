@@ -2,12 +2,6 @@ import React, { Component } from 'react';
 import '../Login.css'
 
 class BeerItem extends Component {
-
-    state = {
-        liked: false
-    };
-
-    LikePost = () => this.setState({ liked: !this.state.liked})
         render() {
             return (
                 <div className='mainContainer'>

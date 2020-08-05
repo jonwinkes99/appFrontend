@@ -1,6 +1,5 @@
 import React from 'react';
 import {Route} from "react-router-dom"
-//import UserStore from "/UserStore"
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Resume from "./components/Resume"
 import Contacts from "./components/Contacts"

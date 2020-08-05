@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { observer } from 'mobx-react'
 import UserStore from "../userStore"
 import LoginForm from "./LoginForm"
@@ -84,11 +84,6 @@ class Login extends React.Component {
                 <div className='app'>
                     <Navbar/>
                     <div className='container'>
-                        <SubmitButton
-                            text={'log out'}
-                            disabled={false}
-                            onClick={ () => this.doLogout() }
-                        />
                         <LoginForm/>
                     </div>
                 </div>

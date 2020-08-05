@@ -2,8 +2,8 @@ import React from 'react';
 import InputField from './InputField'
 import SubmitButton from './SubmitButton'
 import UserStore from '../userStore'
-import { RotateLeftRounded } from '@material-ui/icons';
-import { SpeedRounded } from '@material-ui/icons';
+// import { RotateLeftRounded } from '@material-ui/icons';
+// import { SpeedRounded } from '@material-ui/icons';
 
 
 
@@ -23,7 +23,7 @@ class LoginForm extends React.Component {
         }
         this.setState({
             [property]: val
-        })
+        });
     }
     restForm() {
         this.setState({
@@ -72,7 +72,7 @@ class LoginForm extends React.Component {
     }
     render() {
         return (
-            <div className="loginForm">
+            <div className="LoginForm">
                 Log in
                 <InputField
                     type='text'

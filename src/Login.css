@@ -13,7 +13,7 @@ body, html, .app, .container {
   
   .container {
     font-size: 28px;
-    color: #fff;
+    color: black;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,17 +36,16 @@ body, html, .app, .container {
   .input {
    box-sizing: border-box;
    outline: none;
-   border: solid 2px #2818c0;
+   border: solid 2px tan;
    border-radius: 4px;
-   color: #292929;
+   color: black;
    width: 100%;
    padding: 12px;
    font-size: 14px;
-   background: "#494B64";
   }
   
   .submitButton {
-   padding-top: 16px;
+   padding-top: 26px;
   }
   
   .btn {
@@ -56,8 +55,49 @@ body, html, .app, .container {
     padding: 12px;
     font-size: 14px;
     font-weight: bold;
-    border: solid 2px #2818c0;
+    border: solid 2px tan;
     border-radius: 4px;
     background: #fff;
     cursor: pointer;
    }
+
+   .button {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: black;
+    border: none;
+    color: tomato;
+    border: solid 2px tan;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+  
+  .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .button:hover span {
+    padding-right: 25px;
+  }
+  
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }

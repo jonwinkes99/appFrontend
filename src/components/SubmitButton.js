@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 
 
-class SubmitButton extends Component {
+class SubmitButton extends React.Component {
     render() {
         return (
             <div className="submitButton">

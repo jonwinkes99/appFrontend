@@ -37,8 +37,10 @@ class Punk extends Component{
                 position: "relative"
                  }}>
                 <Navbar style={{position: "absolute"}}/>
-                <button onClick = {this.fetchBeers}>
-                    list beers
+                <button onClick = {this.fetchBeers} class="button">
+                    <span>
+                        list beers
+                    </span>
                 </button>
                 <p>
                     {

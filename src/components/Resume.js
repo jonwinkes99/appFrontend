@@ -80,7 +80,7 @@ const useStyles = makeStyles(theme=>({
         margin: "0 3rem 0 auto",
         fontSize: "28.8px",
         background: "black",
-        color: "tan",
+        color: "tomato",
         lineHeight: 1,
         padding: "8px 0 16px",
         "&:before": {
