@@ -22,6 +22,7 @@ import {
     ContactMail
 } from "@material-ui/icons"
 import LocalDrinkIcon from '@material-ui/icons/LocalDrink';
+import GetAppIcon from '@material-ui/icons/GetApp';
 import avatar from '../jonpic.jpg'
 //import Punk from './Punk'
 
@@ -63,6 +64,11 @@ const menuItems = [
         listIcon: <LocalDrinkIcon/>,
         listText: "Beer API",
         listPath: "/Punk"  
+    },
+    {
+        listIcon: <GetAppIcon/>,
+        listText: "Login Demo",
+        listPath: "/login"   
     }
 ]
 

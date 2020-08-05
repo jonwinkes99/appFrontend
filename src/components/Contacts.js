@@ -7,7 +7,7 @@ import Particles from 'react-particles-js';
 // CSS STYLES
 const useStyles = makeStyles(theme=>({
     mainContainer: {
-        backgroundColor: "#4E538F",
+        backgroundColor: "#494B64",
         height: "950px"
     },
     particlesCanca: {

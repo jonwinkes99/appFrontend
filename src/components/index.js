@@ -7,7 +7,8 @@ import {makeStyles} from "@material-ui/styles"
 
 const useStyles = makeStyles({
     particlesCanca: {
-        position: "absolute"
+        position: "absolute",
+        background: "#494B64"
     }
 })
 
