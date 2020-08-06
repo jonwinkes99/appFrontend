@@ -1,99 +1,53 @@
 import React from 'react';
-import InputField from './InputField'
-import SubmitButton from './SubmitButton'
-import UserStore from '../userStore'
-// import { RotateLeftRounded } from '@material-ui/icons';
-// import { SpeedRounded } from '@material-ui/icons';
+import fire from '../config/fire';
+import Navbar from './Navbar';
 
+class Login extends React.Component {
 
+  signUp() {
+    const email = document.querySelector('#email').value;
+    const password = document.querySelector('#password').value;
+    fire.auth().createUserWithEmailAndPassword(email, password)
+      .then((u) => {
+        console.log('Successfully Signed Up');
+      })
+      .catch((err) => {
+        console.log('Error: ' + err.toString());
+      })
+  }
 
-class LoginForm extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            username: '',
-            password: '',
-            buttonDisabled: false
-        }
-    }
-    setInputValue(property, val) {
-        val = val.trim();
-        if (val.length > 12) {
-            return;
-        }
-        this.setState({
-            [property]: val
-        });
-    }
-    restForm() {
-        this.setState({
-            username: '',
-            password: '',
-            buttonDisabled: false
-        })
-    }
-    async doLogin() {
-        if (!this.state.username) {
-            return;
-        }
-        if (!this.state.password) {
-            return;
-        }
-        this.setState({
-            buttonDisabled: true
-        });
+  login() {
+    const email = document.querySelector('#email').value;
+    const password = document.querySelector('#password').value;
+    fire.auth().signInWithEmailAndPassword(email, password)
+      .then((u) => {
+        console.log('Successfully Logged In');
+      })
+      .catch((err) => {
+        console.log('Error: ' + err.toString());
+      })
+  }
 
-        try {
-            let res = await fetch('/login', {
-                method: 'post',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    username: this.state.username,
-                    password: this.state.password
-                })
-            });
-            let result = await res.json();
-            if (result && result.success) {
-                UserStore.isLoggedIn = true;
-                UserStore.username = result.username;
-            } 
-            else if (result && result.success === false) {
-                this.resetForm();
-                alert(result.msg);
-            }
-        }
-        catch(e) {
-            console.log(e);
-            this.resetForm();
-        }
-    }
-    render() {
-        return (
-            <div className="LoginForm">
-                Log in
-                <InputField
-                    type='text'
-                    placeholder='Username'
-                    value={this.state.username ? this.state.username : ''}
-                    onChange={ (val) => this.setInputValue('username', val) }
-                />
-                <InputField
-                    type='text'
-                    placeholder='Password'
-                    value={this.state.password ? this.state.password : ''}
-                    onChange={ (val) => this.setInputValue('password', val) }
-                />
-                <SubmitButton
-                text='Login'
-                disabled={this.state.buttonDisabled}
-                onClick={ () => this.doLogin() }
-                />
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div style={{ textAlign: 'center' }}>
+          <Navbar/>
+        <div>
+          <div style={{fontSize: '30px'}}>Email</div>
+          <input id="email" placeholder="Enter Email.." type="text" style={{fontSize: '22px', padding: '5px'}}/>
+        </div>
+        <div>
+          <div style={{fontSize: '25px'}}>Password</div>
+          <input id="password" placeholder="Enter Password.." type="text" style={{
+            fontSize: '22px',
+            padding: '5px'
+        }}/>
+        </div>
+        <button style={{margin: '10px', fontSize: '23px'}} onClick={this.login}>Login</button>
+        <button style={{margin: '10px', fontSize: '23px'}} onClick={this.signUp}>Sign Up</button>
+      </div>
+    )
+  }
 }
 
-export default LoginForm;
+export default Login;

@@ -1,96 +1,41 @@
-import React from 'react'
-import { observer } from 'mobx-react'
-import UserStore from "../userStore"
-import LoginForm from "./LoginForm"
-import SubmitButton from "./SubmitButton"
-import Navbar from "./Navbar"
-import '../Login.css'
+import React, { Component } from 'react';
+import fire from '../config/fire'
+import LoginForm from './LoginForm.js';
+import Home from '../Home.js';
+//import Navbar from './Navbar'
 
-class Login extends React.Component {
+class Login extends Component {
 
-    async componentDidMount() {
-        try {
-            let res = await fetch('/isLoggedIn', {
-                method: 'post',
-                headers: {
-                    'Accept': 'application/json',
-                    'content-Type': 'application/json'
-                }
-            });
-            let result = await res.json();
-            if (result && result.success) {
-                UserStore.loading = false;
-                UserStore.isLoggedIn = true;
-                UserStore.username = result.username;
-            }
-            else {
-                UserStore.loading = false;
-                UserStore.isLoggedIn = false;
-            }
-        }
-        catch(e) {
-            UserStore.loading = false;
-            UserStore.isLoggedIn = false;
-        }
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: null,
+    };
 
-    async doLogout() {
-        try {
-            let res = await fetch('/logout', {
-                method: 'post',
-                headers: {
-                    'Accept': 'application/json',
-                    'content-Type': 'application/json'
-                }
-            });
-            let result = await res.json();
-            if (result && result.success) {
-                UserStore.isLoggedIn = false;
-                UserStore.username = '';
-            }
-        }
-        catch(e) {
-            console.log(e)
-        }
-    }
+    this.authListener = this.authListener.bind(this);
+  }
 
-    render() {
-        if (UserStore.loading) {
-            return (
-                <div className='app'>
-                    <div className='container'>
-                        loading, please wait...
-                    </div>
-            </div>
-            );
-        }
-        else {
-            if (UserStore.isLoggedIn) {
-                return (
-                    <div className='app'>
-                        <Navbar/>
-                        <div className='container'>
-                            Welcome {UserStore.username}
-                            <SubmitButton
-                                text={'log out'}
-                                disabled={false}
-                                onClick={ () => this.doLogout() }
-                            />
-                        </div>
-                </div>
-                );
-            }
-            return (
-                <div className='app'>
-                    <Navbar/>
-                    <div className='container'>
-                        <LoginForm/>
-                    </div>
-                </div>
-            )
-        }
-        
-    }
+  componentDidMount() {
+    this.authListener();
+  }
+
+  authListener() {
+    fire.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({ user });
+      } else {
+        this.setState({ user: null });
+      }
+    })
+  }
+
+  render() {
+    return (
+      <div className="App">
+        { this.state.user ? ( <Home /> ) : ( <LoginForm /> ) }
+      </div>
+    );
+  }
 }
 
-export default observer(Login)
+export default Login;

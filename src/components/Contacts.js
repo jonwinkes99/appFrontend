@@ -18,17 +18,20 @@ const useStyles = makeStyles(theme=>({
         textAlign: "center",
         color: "tomato",
         padding: "48px 0",
-        textTransform: "uppercase"
+        textTransform: "uppercase",
+        fontSize: "30px"
     },
     subHeading:{
         textAlign: "center",
         padding: "48px 20px",
         color: "tan",
-        textTransform: "uppercase"
+        textTransform: "uppercase",
+        fontSize: "20px"
     },
     textInfo: {
         textAlign: "center",
-        borderBottom: "1px"
+        borderBottom: "1px",
+        fontSize: "20px"
     }
 }));
 
